@@ -8,6 +8,9 @@ class Mago(Personaje):
 
     def bolaDeFuego(self, objetivo):
         #Habilidad que permite al Mago realizar un potente hechizo
+        if self.mana < 40:
+            print('El mago no tiene suficiente mana para lanzar Bola de Fuego')
+            return
         danio = self.ataque * 1.83
         self.mana = self.mana - 40
         print('El mago lanza su potente bola de fuego!')
