@@ -1,7 +1,7 @@
 from personaje import Personaje
 
 class Guerrero(Personaje):
-    def __init__(self, nombre, vida, ataque, defensa, bloqueo):
+    def __init__(self, nombre):
         super().__init__(nombre, vida = 150, ataque = 15, defensa = 30)
         self.bloqueo = False
         print('Se ha creado un guerrero, un personaje que aunque no cuenta con un gran nivel de ataque cuenta con una defensa ferrea')

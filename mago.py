@@ -15,3 +15,7 @@ class Mago(Personaje):
         self.mana = self.mana - 40
         print('El mago lanza su potente bola de fuego!')
         objetivo.recibirDanio(danio)
+
+    def mostrar_estado(self):
+        print(f"Mana del personaje: {self.mana}")
+        return super().mostrar_estado()
