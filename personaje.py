@@ -13,11 +13,12 @@ class Personaje:
         if numero == 6: #golpe critico
             ataque *= 2 
             print(f'{self.nombre} realiza un golpe critico!')
+        print(f'{self.nombre} ha realizado {ataque} puntos de danio')
 
         objetivo.recibirDanio(ataque)
     
     def recibirDanio(self, danio):
-        danioFinal = danio - self.defensa
+        danioFinal = danio - (self.defensa * 0.30)
 
         if danioFinal < 0:
             danioFinal = 0

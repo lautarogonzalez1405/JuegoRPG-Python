@@ -13,11 +13,12 @@ class Guerrero(Personaje):
 
     def ataquePesado(self, objetivo):
         #Habilidad que permite al guerrero realizar un potente ataque pesado
-        danio = self.ataque + (self.ataque * 0.4)
+        danio = self.ataque * 1.8
         objetivo.recibirDanio(danio)
 
     def recibirDanio(self, danio):
         if self.bloqueo:
-            danio = danio * 0.65
+            danio = 0
+            super().recibirDanio(danio)
             self.bloqueo = False
-        super.recibirDanio(danio)
+        super().recibirDanio(danio)

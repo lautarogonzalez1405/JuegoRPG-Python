@@ -1,6 +1,7 @@
 from personaje import Personaje
 from guerrero import Guerrero
 from mago import Mago
+from enemigo import Enemigo
 import random
 
 def pausar():
@@ -29,6 +30,10 @@ nombres_enemigos = [
     "Xarnok"
 ]
 
+def generarEnemigo():
+    enemigo = Enemigo(random.choice(nombres_enemigos))
+    return enemigo
+
 print('============================')
 print("Bienvenido a mi juego RPG")
 print('============================')
@@ -53,3 +58,60 @@ elif eleccion == 2:
     jugador = Mago(nombre)
 #TODO: Una vez creado el Arquero implementar un else para crear un Arquero
 
+enemigo = generarEnemigo()
+
+while jugador.esta_vivo() and enemigo.esta_vivo():
+    if eleccion == 1:
+        print("Que movimiento deseas realizar?")
+        print("1. Ataque simple")
+        print("2. Ataque pesado")
+        print("3. Alzar escudo")
+        movimiento = int(input('Elije tu movimiento: '))
+        while movimiento not in (1, 2, 3):
+            print('Has elejido un movimiento invalido, por favor vuelva a seleccionar un movimiento')
+            movimiento = int(input('Elije tu movimiento: '))
+            continue
+        if movimiento == 1:
+            jugador.atacar(enemigo)
+            print(f'El enemigo tiene ahora {enemigo.vida} puntos de vida')
+            pausar()
+            enemigo.atacar(jugador)
+            print(f'El jugador tiene ahora {jugador.vida} puntos de vida')
+            pausar()
+        elif movimiento == 2:
+            jugador.ataquePesado(enemigo)
+            print(f'El enemigo tiene ahora {enemigo.vida} puntos de vida')
+            pausar()
+            enemigo.atacar(jugador)
+            print(f'El jugador tiene ahora {jugador.vida} puntos de vida')
+            pausar()
+        else:
+            jugador.alzarEscudo()
+            pausar()
+            enemigo.atacar(jugador)
+            print(f'El jugador tiene ahora {jugador.vida} puntos de vida')
+            pausar()
+    
+    if eleccion == 2:
+        print("Que movimiento deseas realizar?")
+        print("1. Ataque simple")
+        print("2. Bola de fuego")
+        movimiento = int(input('Elije tu movimiento: '))
+        while movimiento not in (1, 2):
+            print('Has elejido un movimiento invalido, por favor vuelva a seleccionar un movimiento')
+            movimiento = int(input('Elije tu movimiento: '))
+            continue
+        if movimiento == 1:
+            jugador.atacar(enemigo)
+            print(f'El enemigo tiene ahora {enemigo.vida} puntos de vida')
+            pausar()
+            enemigo.atacar(jugador)
+            print(f'El jugador tiene ahora {jugador.vida} puntos de vida')
+            pausar()
+        else:
+            jugador.bolaDeFuego(enemigo)
+            print(f'El enemigo tiene ahora {enemigo.vida} puntos de vida')
+            pausar()
+            enemigo.atacar(jugador)
+            print(f'El jugador tiene ahora {jugador.vida} puntos de vida')
+            pausar()
