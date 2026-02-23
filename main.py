@@ -98,7 +98,6 @@ while jugador.esta_vivo() and enemigo.esta_vivo():
             pausar()
         else:
             jugador.mostrar_estado()
-            enemigo.mostrar_estado()
             pausar()
     
     if eleccion == 2:
@@ -127,7 +126,6 @@ while jugador.esta_vivo() and enemigo.esta_vivo():
             pausar()
         else:
             jugador.mostrar_estado()
-            enemigo.mostrar_estado()
             pausar()
     if eleccion == 3:
         print("Que movimiento deseas realizar?")
@@ -155,5 +153,4 @@ while jugador.esta_vivo() and enemigo.esta_vivo():
             pausar()
         else:
             jugador.mostrar_estado()
-            enemigo.mostrar_estado()
             pausar()
