@@ -1,3 +1,4 @@
+from arquero import Arquero
 from personaje import Personaje
 from guerrero import Guerrero
 from mago import Mago
@@ -56,7 +57,10 @@ if eleccion == 1:
 elif eleccion == 2:
     nombre = input('Genial! Como se llamara tu Mago?:')
     jugador = Mago(nombre)
-#TODO: Una vez creado el Arquero implementar un else para crear un Arquero
+else:
+    nombre = input('Genial! Como se llamara tu Arquero?:')
+    jugador = Arquero(nombre)
+
 
 enemigo = generarEnemigo()
 
@@ -110,6 +114,29 @@ while jugador.esta_vivo() and enemigo.esta_vivo():
             pausar()
         else:
             jugador.bolaDeFuego(enemigo)
+            print(f'El enemigo tiene ahora {enemigo.vida} puntos de vida')
+            pausar()
+            enemigo.atacar(jugador)
+            print(f'El jugador tiene ahora {jugador.vida} puntos de vida')
+            pausar()
+    if eleccion == 3:
+        print("Que movimiento deseas realizar?")
+        print("1. Ataque simple")
+        print("2. Disparar flecha")
+        movimiento = int(input('Elije tu movimiento: '))
+        while movimiento not in (1, 2):
+            print('Has elejido un movimiento invalido, por favor vuelva a seleccionar un movimiento')
+            movimiento = int(input('Elije tu movimiento: '))
+            continue
+        if movimiento == 1:
+            jugador.atacar(enemigo)
+            print(f'El enemigo tiene ahora {enemigo.vida} puntos de vida')
+            pausar()
+            enemigo.atacar(jugador)
+            print(f'El jugador tiene ahora {jugador.vida} puntos de vida')
+            pausar()
+        else:
+            jugador.dispararFlecha(enemigo)
             print(f'El enemigo tiene ahora {enemigo.vida} puntos de vida')
             pausar()
             enemigo.atacar(jugador)
