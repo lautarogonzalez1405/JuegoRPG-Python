@@ -70,8 +70,9 @@ while jugador.esta_vivo() and enemigo.esta_vivo():
         print("1. Ataque simple")
         print("2. Ataque pesado")
         print("3. Alzar escudo")
+        print("4. Mostrar estado del personaje")
         movimiento = int(input('Elije tu movimiento: '))
-        while movimiento not in (1, 2, 3):
+        while movimiento not in (1, 2, 3, 4):
             print('Has elejido un movimiento invalido, por favor vuelva a seleccionar un movimiento')
             movimiento = int(input('Elije tu movimiento: '))
             continue
@@ -89,19 +90,24 @@ while jugador.esta_vivo() and enemigo.esta_vivo():
             enemigo.atacar(jugador)
             print(f'El jugador tiene ahora {jugador.vida} puntos de vida')
             pausar()
-        else:
+        elif movimiento == 3:
             jugador.alzarEscudo()
             pausar()
             enemigo.atacar(jugador)
             print(f'El jugador tiene ahora {jugador.vida} puntos de vida')
+            pausar()
+        else:
+            jugador.mostrar_estado()
+            enemigo.mostrar_estado()
             pausar()
     
     if eleccion == 2:
         print("Que movimiento deseas realizar?")
         print("1. Ataque simple")
         print("2. Bola de fuego")
+        print("3. Mostrar estado del personaje")
         movimiento = int(input('Elije tu movimiento: '))
-        while movimiento not in (1, 2):
+        while movimiento not in (1, 2, 3):
             print('Has elejido un movimiento invalido, por favor vuelva a seleccionar un movimiento')
             movimiento = int(input('Elije tu movimiento: '))
             continue
@@ -112,19 +118,24 @@ while jugador.esta_vivo() and enemigo.esta_vivo():
             enemigo.atacar(jugador)
             print(f'El jugador tiene ahora {jugador.vida} puntos de vida')
             pausar()
-        else:
+        elif movimiento == 2:
             jugador.bolaDeFuego(enemigo)
             print(f'El enemigo tiene ahora {enemigo.vida} puntos de vida')
             pausar()
             enemigo.atacar(jugador)
             print(f'El jugador tiene ahora {jugador.vida} puntos de vida')
             pausar()
+        else:
+            jugador.mostrar_estado()
+            enemigo.mostrar_estado()
+            pausar()
     if eleccion == 3:
         print("Que movimiento deseas realizar?")
         print("1. Ataque simple")
         print("2. Disparar flecha")
+        print("3. Mostrar estado del personaje")
         movimiento = int(input('Elije tu movimiento: '))
-        while movimiento not in (1, 2):
+        while movimiento not in (1, 2, 3):
             print('Has elejido un movimiento invalido, por favor vuelva a seleccionar un movimiento')
             movimiento = int(input('Elije tu movimiento: '))
             continue
@@ -135,10 +146,14 @@ while jugador.esta_vivo() and enemigo.esta_vivo():
             enemigo.atacar(jugador)
             print(f'El jugador tiene ahora {jugador.vida} puntos de vida')
             pausar()
-        else:
+        elif movimiento == 2:
             jugador.dispararFlecha(enemigo)
             print(f'El enemigo tiene ahora {enemigo.vida} puntos de vida')
             pausar()
             enemigo.atacar(jugador)
             print(f'El jugador tiene ahora {jugador.vida} puntos de vida')
+            pausar()
+        else:
+            jugador.mostrar_estado()
+            enemigo.mostrar_estado()
             pausar()
